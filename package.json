@@ -1,6 +1,6 @@
 {
     "name": "expo-linkrunner",
-    "version": "3.0.1",
+    "version": "3.1.0",
     "description": "Expo config plugin for rn-linkrunner SDK",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -48,7 +48,7 @@
     "peerDependencies": {
         "@expo/config-plugins": "^7.0.0 || ^8.0.0",
         "expo-tracking-transparency": "*",
-        "rn-linkrunner": "^2.2.0"
+        "rn-linkrunner": "^2.3.0"
     },
     "engines": {
         "node": ">=18.0.0"
