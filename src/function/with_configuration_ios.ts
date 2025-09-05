@@ -23,8 +23,12 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
         }
 
         // Add SKAN configuration
-        expoConfig.modResults.NSAdvertisingAttributionReportEndpoint = 'https://linkrunner-skan.com'
-        expoConfig.modResults.AdAttributionKitPostbackCopyURL = 'https://linkrunner-skan.com'
+        if(!expoConfig.modResults.NSAdvertisingAttributionReportEndpoint) {
+            expoConfig.modResults.NSAdvertisingAttributionReportEndpoint = 'https://linkrunner-skan.com'
+        }
+        if(!expoConfig.modResults.AttributionCopyEndpoint) {
+            expoConfig.modResults.AttributionCopyEndpoint = 'https://linkrunner-skan.com'
+        }
 
         return expoConfig
     })
