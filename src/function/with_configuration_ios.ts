@@ -22,6 +22,10 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
             expoConfig.modResults.NSUserTrackingUsageDescription = userTrackingMessage
         }
 
+        // Add SKAN configuration
+        expoConfig.modResults.NSAdvertisingAttributionReportEndpoint = 'https://linkrunner-skan.com'
+        expoConfig.modResults.AdAttributionKitPostbackCopyURL = 'https://linkrunner-skan.com'
+
         return expoConfig
     })
 
