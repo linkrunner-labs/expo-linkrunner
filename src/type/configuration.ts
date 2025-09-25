@@ -3,4 +3,6 @@ export type LinkrunnerConfiguration = {
     debug?: boolean
     /** Custom message for user tracking permission (iOS) */
     userTrackingPermission?: string
+    /** Disable IDFA tracking (optional) */
+    disableIdfa?: boolean
 } 

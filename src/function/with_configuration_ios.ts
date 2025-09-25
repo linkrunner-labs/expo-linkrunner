@@ -17,8 +17,8 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
 
     expoConfig = withInfoPlist(expoConfig, expoConfig => {
 
-        // Add tracking description from configuration or default
-        if (!expoConfig.modResults.NSUserTrackingUsageDescription) {
+        // Add tracking description from configuration or default only when disable idfa is false
+        if (!expoConfig.modResults.NSUserTrackingUsageDescription && !configuration?.disableIdfa) {
             expoConfig.modResults.NSUserTrackingUsageDescription = userTrackingMessage
         }
 
@@ -33,15 +33,19 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
         return expoConfig
     })
 
-    // Automatically apply expo-tracking-transparency plugin
-    expoConfig = withPlugins(expoConfig, [
-        [
-            'expo-tracking-transparency',
-            {
-                userTrackingPermission: userTrackingMessage
-            }
-        ]
-    ])
+
+    // add the plugin only if disableIdfa is false
+    if(!configuration?.disableIdfa){
+        // Automatically apply expo-tracking-transparency plugin
+        expoConfig = withPlugins(expoConfig, [
+            [
+                'expo-tracking-transparency',
+                {
+                    userTrackingPermission: userTrackingMessage,
+                }
+            ]
+        ])
+    }
 
     return expoConfig
 }
