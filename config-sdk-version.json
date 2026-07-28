@@ -1,0 +1,149 @@
+{
+  "sdk": "EXPO",
+  "package": "expo-linkrunner",
+  "latest_version": "3.3.0",
+  "total_versions": 27,
+  "source": "version and description from Postgres public.\"SDKVersion\"; pushed_date from the package registry publish date, falling back to CHANGELOG.md, git tags, then manifest history",
+  "version_source": {
+    "file": "package.json",
+    "type": "package_json"
+  },
+  "version_mirrors": [],
+  "sdk_versions": [
+    {
+      "version": "3.3.0",
+      "pushed_date": "2025-12-17",
+      "description": "Updated the React Native dependency to collect Apple Search Ads attribution in generated Expo applications."
+    },
+    {
+      "version": "3.2.3",
+      "pushed_date": "2025-11-11",
+      "description": "Added the package export index so consumers and bundlers can resolve the public module entry point correctly."
+    },
+    {
+      "version": "3.2.2",
+      "pushed_date": "2025-11-11",
+      "description": "Updated rn-linkrunner for Braze, Google Analytics, and event-ID support."
+    },
+    {
+      "version": "3.2.1",
+      "pushed_date": "2025-09-25",
+      "description": "Added disableIdfa configuration and stopped adding tracking usage text when IDFA is disabled."
+    },
+    {
+      "version": "3.2.0",
+      "pushed_date": "2025-09-05",
+      "description": "Made SKAdNetwork configuration idempotent and updated React Native dependencies."
+    },
+    {
+      "version": "3.1.0",
+      "pushed_date": "2025-09-05",
+      "description": "Added iOS SKAdNetwork entries through the Expo config plugin for privacy-preserving install attribution."
+    },
+    {
+      "version": "3.0.1",
+      "pushed_date": "2025-07-29",
+      "description": "Resolved the Android Koin dependency conflict through native SDK alignment."
+    },
+    {
+      "version": "3.0.0",
+      "pushed_date": "2025-07-25",
+      "description": "Refactored the package into an Expo config plugin with Android and iOS native configuration."
+    },
+    {
+      "version": "2.1.2",
+      "pushed_date": "2025-07-22",
+      "description": "Corrected build scripts for the TypeScript-only Expo package so compilation and publishing complete reliably."
+    },
+    {
+      "version": "2.1.1",
+      "pushed_date": "2025-07-21",
+      "description": "Synchronized the Expo module package version with the version reported by the SDK at runtime."
+    },
+    {
+      "version": "2.1.0",
+      "pushed_date": "2025-07-21",
+      "description": "Added Expo module configuration and removed obsolete deeplink URL handling."
+    },
+    {
+      "version": "2.0.3",
+      "pushed_date": "2025-06-27",
+      "description": "Fixed Android advertising ID retrieval so attribution requests include the identifier when collection is permitted."
+    },
+    {
+      "version": "2.0.2",
+      "pushed_date": "2025-06-08",
+      "description": "Updated repository metadata and attribution documentation."
+    },
+    {
+      "version": "2.0.1",
+      "pushed_date": "2025-06-06",
+      "description": "Internal package maintenance release; no public API or runtime behavior changes were documented."
+    },
+    {
+      "version": "2.0.0",
+      "pushed_date": "2025-06-06",
+      "description": "Added an API for retrieving the campaign and source data attributed to the current installation."
+    },
+    {
+      "version": "1.3.3",
+      "pushed_date": "2025-05-20",
+      "description": "Added user lifecycle and analytics integration fields for Amplitude, PostHog, and Mixpanel."
+    },
+    {
+      "version": "1.3.2",
+      "pushed_date": "2025-05-20",
+      "description": "Added an initialization debug option for enabling additional SDK diagnostics during development and integration testing."
+    },
+    {
+      "version": "1.3.1",
+      "pushed_date": "2025-03-28",
+      "description": "Checked tracking-permission availability before requesting authorization."
+    },
+    {
+      "version": "1.3.0",
+      "pushed_date": "2025-03-28",
+      "description": "Improved IDFV collection and iOS tracking-permission handling."
+    },
+    {
+      "version": "1.2.4",
+      "pushed_date": "2025-03-25",
+      "description": "Internal package maintenance release; no public API or runtime behavior changes were documented."
+    },
+    {
+      "version": "1.2.3",
+      "pushed_date": "2025-03-25",
+      "description": "Prevented Android install-referrer APIs from being called on iOS."
+    },
+    {
+      "version": "1.2.2",
+      "pushed_date": "2025-03-25",
+      "description": "Synchronized the published package version with the version reported by the SDK at runtime."
+    },
+    {
+      "version": "1.2.1",
+      "pushed_date": "2025-03-25",
+      "description": "Cleaned the published package contents and corrected package configuration for more reliable installation."
+    },
+    {
+      "version": "1.2.0",
+      "pushed_date": "2025-03-25",
+      "description": "Replaced expo-secure-store with AsyncStorage for SDK data persistence."
+    },
+    {
+      "version": "1.1.0",
+      "pushed_date": "2025-03-25",
+      "description": "Updated installation guidance and removed outdated Google Analytics instructions."
+    },
+    {
+      "version": "1.0.1",
+      "pushed_date": "2025-03-25",
+      "description": "Improved install-referrer retrieval and updated package documentation."
+    },
+    {
+      "version": "1.0.0",
+      "pushed_date": "2025-03-24",
+      "description": "Initial Expo SDK release with attribution and install-referrer support."
+    }
+  ]
+}
