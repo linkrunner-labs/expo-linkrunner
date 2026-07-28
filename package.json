@@ -17,8 +17,9 @@
         "lint": "expo-module lint",
         "test": "expo-module test",
         "_prepare": "expo-module prepare",
-        "prepublishOnly": "expo-module prepublishOnly",
-        "expo-module": "expo-module"
+        "prepublishOnly": "npm run check:version && expo-module prepublishOnly",
+        "expo-module": "expo-module",
+        "check:version": "node scripts/check-sdk-version.js"
     },
     "keywords": [
         "expo",
