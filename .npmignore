@@ -12,6 +12,7 @@ src/
 tsconfig.json
 
 # Development files
+.claude/
 .git/
 .gitignore
 .vscode/

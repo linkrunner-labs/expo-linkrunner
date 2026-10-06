@@ -1,6 +1,6 @@
 {
     "name": "expo-linkrunner",
-    "version": "3.4.0",
+    "version": "3.4.1",
     "description": "Expo config plugin for rn-linkrunner SDK",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -17,7 +17,7 @@
         "lint": "expo-module lint",
         "test": "expo-module test",
         "_prepare": "expo-module prepare",
-        "prepublishOnly": "expo-module prepublishOnly",
+        "prepublishOnly": "expo-module clean && CI=1 expo-module build && node -e \"require('./build/index.js')\"",
         "expo-module": "expo-module"
     },
     "keywords": [
