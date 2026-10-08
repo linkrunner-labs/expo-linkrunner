@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-10-09
+
+- Raised the `rn-linkrunner` peer dependency to `^3.2.0`. That release returns `gaid` and `idfa` from `getAttributionData()`: the advertising identifiers Linkrunner recorded the install with, or null when unavailable. It bundles native Android SDK 4.2.0 and iOS SDK 4.2.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
+
 ## [3.4.1] - 2026-10-06
 
 - Fixed 3.4.0 being published without its compiled `build/` folder, which made `expo prebuild` and EAS builds fail with `PluginError: Failed to resolve plugin for module "expo-linkrunner"`. Please upgrade from 3.4.0.
