@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.0] - 2026-10-12
+
+- Raised the `rn-linkrunner` peer dependency to `^3.3.0`. In that release `setUserData` no longer needs a customer user id, so it can be called right after `init` with only analytics ids (for example `mixpanel_distinct_id`, `amplitude_device_id`, `posthog_distinct_id`), and Linkrunner sets its attribution properties on those tools' profiles. `signup` still requires `id`. It bundles native Android SDK 4.3.0 and iOS SDK 4.3.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
+
 ## [3.5.1] - 2026-10-10
 
 - Raised the `rn-linkrunner` peer dependency to `^3.2.1`. In `rn-linkrunner` 3.2.0, `getAttributionData()` returned no `gaid` or `idfa` on Android. 3.2.1 fixes that, and both keys are now `null` when unavailable on Android and iOS. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
