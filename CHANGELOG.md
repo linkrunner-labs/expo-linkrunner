@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.1] - 2026-10-19
+
+- Raised the `rn-linkrunner` peer dependency to `^3.3.1`. On Android, `init`, `signup`, `setUserData` and `setCustomerUserId` no longer run Keystore encryption or blocking disk writes on the main thread, which could freeze the app and cause ANRs on slow devices. A normal app launch now does no Keystore write, and the WebView user agent is cached so it is not rebuilt on every cold start. No API changes. It bundles native Android SDK 4.3.1 and iOS SDK 4.3.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
+
 ## [3.6.0] - 2026-10-12
 
 - Raised the `rn-linkrunner` peer dependency to `^3.3.0`. In that release `setUserData` no longer needs a customer user id, so it can be called right after `init` with only analytics ids (for example `mixpanel_distinct_id`, `amplitude_device_id`, `posthog_distinct_id`), and Linkrunner sets its attribution properties on those tools' profiles. `signup` still requires `id`. It bundles native Android SDK 4.3.0 and iOS SDK 4.3.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
