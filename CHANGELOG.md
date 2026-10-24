@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - Unreleased
+
+- Raised the `rn-linkrunner` peer dependency to `^4.0.0`. That release sends payments through `trackEvent`: put `amount`, `paymentId`, `currency`, `userId` and an optional `status` in `eventData`, for example `linkrunner.trackEvent("FIRST_PAYMENT", { amount: 1200, paymentId: "bk_10231", currency: "INR", userId: "user_123" })`. `capturePayment` and `removePayment` are removed, so move those calls to `trackEvent` before upgrading. It bundles native Android SDK 5.0.0 and iOS SDK 5.0.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
+
+- When you move payments to `trackEvent`, pass your old payment type as the event name in uppercase exactly as before (for example `FIRST_PAYMENT`) to keep existing dashboard mappings. A new name such as `purchase` needs a new mapping. See the `rn-linkrunner` 4.0.0 changelog.
+
 ## [3.6.2] - 2026-10-21
 
 - Raised the `rn-linkrunner` peer dependency to `^3.3.2`, which bundles native Android SDK 4.3.2. Fixes a launch crash (`NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init>`) in Android release builds shrunk by R8 on Android Gradle Plugin 9, for example Expo 58 release builds where shrinking is on by default. With only that crash patched, `init`, `signup`, `trackEvent`, `capturePayment` and the other queued calls were never sent. The native SDK's consumer ProGuard rules now keep the constructors WorkManager creates by reflection, so apps need no rule of their own. No API changes. iOS SDK stays on 4.3.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
