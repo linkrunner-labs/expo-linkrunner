@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.4] - 2026-10-26
+
+- Raised the `rn-linkrunner` peer dependency to `^3.4.1`, which bundles native iOS SDK LinkrunnerKit 4.3.1. Fixes an `EXC_BAD_ACCESS (KERN_INVALID_ADDRESS)` crash at app launch on iOS, in frames like `DeviceData`, `getAttributionToken`, `setUserData` and `makeRequestWithRetry`, that could happen when `init`, `setUserData`, `trackEvent` and other calls ran at the same time. No API changes. Android SDK stays on 4.4.0. Update `rn-linkrunner` to 3.4.1 or later and run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
 ## [3.6.3] - 2026-10-24
 
 - Raised the `rn-linkrunner` peer dependency to `^3.4.0`, which bundles native Android SDK 4.4.0. Android device data now includes `device_model` (`Build.MODEL`, for example `SM-M315F`), so Device Model is filled for Android users on the dashboard and in ad network postbacks. `device_name` is unchanged. No API changes. iOS SDK stays on 4.3.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
