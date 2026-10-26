@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.0] - Unreleased
 
-- Raised the `rn-linkrunner` peer dependency to `^4.0.0`. That release sends payments through `trackEvent`: put `amount`, `paymentId`, `currency`, `userId` and an optional `status` in `eventData`, for example `linkrunner.trackEvent("FIRST_PAYMENT", { amount: 1200, paymentId: "bk_10231", currency: "INR", userId: "user_123" })`. `capturePayment` and `removePayment` are removed, so move those calls to `trackEvent` before upgrading. It bundles native Android SDK 5.0.0 and iOS SDK 5.0.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
+- Raised the `rn-linkrunner` peer dependency to `^4.0.0`. That release sends payments through `trackEvent`: put `amount`, `paymentId`, `currency`, `userId` and an optional `status` in `eventData`, for example `linkrunner.trackEvent("FIRST_PAYMENT", { amount: 1200, paymentId: "bk_10231", currency: "INR", userId: "user_123" })`. `capturePayment` and `removePayment` are deprecated: they still work as before and show a warning in your editor, and will be removed in a future major version, so move those calls to `trackEvent`. It bundles native Android SDK 5.0.0 and iOS SDK 5.0.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
 
 - When you move payments to `trackEvent`, pass your old payment type as the event name in uppercase exactly as before (for example `FIRST_PAYMENT`) to keep existing dashboard mappings. A new name such as `purchase` needs a new mapping. See the `rn-linkrunner` 4.0.0 changelog.
 
