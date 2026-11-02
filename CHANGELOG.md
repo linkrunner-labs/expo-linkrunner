@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.5] - 2026-11-02
+
+- Raised the `rn-linkrunner` peer dependency to `^3.4.2`, which bundles native iOS SDK LinkrunnerKit 4.3.2. Fixes SKAdNetwork postbacks arriving with no conversion value on iOS 17.4 and above, so installs from SKAdNetwork-signed networks such as Meta and Google now carry the conversion value again. No API changes. Android SDK stays on 4.4.0. Update `rn-linkrunner` to 3.4.2 or later and run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
 ## [3.6.4] - 2026-10-26
 
 - Raised the `rn-linkrunner` peer dependency to `^3.4.1`, which bundles native iOS SDK LinkrunnerKit 4.3.1. Fixes an `EXC_BAD_ACCESS (KERN_INVALID_ADDRESS)` crash at app launch on iOS, in frames like `DeviceData`, `getAttributionToken`, `setUserData` and `makeRequestWithRetry`, that could happen when `init`, `setUserData`, `trackEvent` and other calls ran at the same time. No API changes. Android SDK stays on 4.4.0. Update `rn-linkrunner` to 3.4.1 or later and run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
