@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2026-11-13
+
+- Added the `privacyMode` plugin option for apps directed at children (COPPA, Apple Kids Category, Google Play Families). When `true`, the plugin does not add `NSUserTrackingUsageDescription` or the SKAdNetwork keys (`NSAdvertisingAttributionReportEndpoint`, `AttributionCopyEndpoint`) to `Info.plist` on iOS, and removes the `com.google.android.gms.permission.AD_ID` permission on Android with `tools:node="remove"`. The option only changes native config. Also pass `privacyMode: true` as the last argument of `linkrunner.init(token, secretKey, keyId, disableIdfa, debug, privacyMode)` from `rn-linkrunner`, which stops the SDK from collecting device-level identifiers. Raised the `rn-linkrunner` peer dependency to `^4.1.0`, the release that adds `privacyMode` and bundles native Android SDK 5.1.0 and iOS SDK 5.1.0. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after changing the option.
+
 ## [4.0.0] - 2026-11-08
 
 - Raised the `rn-linkrunner` peer dependency to `^4.0.0`. That release sends payments through `trackEvent`: put `amount`, `paymentId`, `currency`, `userId` and an optional `status` in `eventData`, for example `linkrunner.trackEvent("FIRST_PAYMENT", { amount: 1200, paymentId: "bk_10231", currency: "INR", userId: "user_123" })`. `capturePayment` and `removePayment` are deprecated: they still work as before and show a warning in your editor, and will be removed in a future major version, so move those calls to `trackEvent`. It bundles native Android SDK 5.0.0 and iOS SDK 5.0.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
