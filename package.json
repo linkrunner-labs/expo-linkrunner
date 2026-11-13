@@ -1,6 +1,6 @@
 {
     "name": "expo-linkrunner",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "Expo config plugin for rn-linkrunner, the Linkrunner MMP SDK: mobile attribution and deferred deep links in Expo dev builds and EAS Build (not Expo Go).",
     "main": "build/index.js",
     "types": "build/index.d.ts",
@@ -50,7 +50,7 @@
     },
     "peerDependencies": {
         "@expo/config-plugins": "^7.0.0 || ^8.0.0",
-        "rn-linkrunner": "^4.0.0"
+        "rn-linkrunner": "^4.1.0"
     },
     "engines": {
         "node": ">=18.0.0"
