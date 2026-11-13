@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2026-11-13
+
+### Added
+
+- The SDK now reads the Meta (Facebook) SDK's anonymous ID when your app bundles the Meta SDK, and sends it with `init`, `signup`, `trackEvent` and `capturePayment`. The backend forwards it to Meta as `anon_id`, giving Meta the same match key it already has from the Meta SDK on the device. No app code changes and no new dependency: the lookup resolves at runtime and sends nothing when the Meta SDK is absent.
+- New config plugin option `collectMetaAnonymousId`. It is on by default; set it to `false` and the plugin writes the opt-out flag into both `AndroidManifest.xml` and `Info.plist`, which Expo apps cannot edit by hand.
+
+### Changed
+
+- `rn-linkrunner` peer dependency raised to `^4.1.0`.
+
 ## [4.0.0] - 2026-11-08
 
 - Raised the `rn-linkrunner` peer dependency to `^4.0.0`. That release sends payments through `trackEvent`: put `amount`, `paymentId`, `currency`, `userId` and an optional `status` in `eventData`, for example `linkrunner.trackEvent("FIRST_PAYMENT", { amount: 1200, paymentId: "bk_10231", currency: "INR", userId: "user_123" })`. `capturePayment` and `removePayment` are deprecated: they still work as before and show a warning in your editor, and will be removed in a future major version, so move those calls to `trackEvent`. It bundles native Android SDK 5.0.0 and iOS SDK 5.0.0. Run a native rebuild (`npx expo prebuild` or an EAS build) after upgrading.
