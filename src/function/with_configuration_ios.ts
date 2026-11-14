@@ -37,6 +37,12 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
             }
         }
 
+        // Meta anonymous ID collection is on by default, so only an explicit opt-out is
+        // written. Expo apps cannot edit Info.plist by hand, hence the plugin option.
+        if (configuration?.collectMetaAnonymousId === false) {
+            expoConfig.modResults.LinkrunnerMetaAnonymousIdCollectionEnabled = false
+        }
+
         return expoConfig
     })
 

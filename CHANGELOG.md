@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0] - 2026-11-14
+
+### Added
+
+- The SDK now reads the Meta (Facebook) SDK's anonymous ID when your app bundles the Meta SDK, and sends it with `init`, `signup`, `trackEvent` and `capturePayment`. The backend forwards it to Meta as `anon_id`, giving Meta the same match key it already has from the Meta SDK on the device. No app code changes and no new dependency: the lookup resolves at runtime and sends nothing when the Meta SDK is absent.
+- New config plugin option `collectMetaAnonymousId`. It is on by default; set it to `false` and the plugin writes the opt-out flag into both `AndroidManifest.xml` and `Info.plist`, which Expo apps cannot edit by hand.
+
+### Changed
+
+- `rn-linkrunner` peer dependency raised to `^4.2.0`, which bundles native Android SDK 5.2.0 and iOS SDK 5.2.0. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
 ## [4.1.0] - 2026-11-13
 
 - Added the `privacyMode` plugin option for apps directed at children (COPPA, Apple Kids Category, Google Play Families). When `true`, the plugin does not add `NSUserTrackingUsageDescription` or the SKAdNetwork keys (`NSAdvertisingAttributionReportEndpoint`, `AttributionCopyEndpoint`) to `Info.plist` on iOS, and removes the `com.google.android.gms.permission.AD_ID` permission on Android with `tools:node="remove"`. The option only changes native config. Also pass `privacyMode: true` as the last argument of `linkrunner.init(token, secretKey, keyId, disableIdfa, debug, privacyMode)` from `rn-linkrunner`, which stops the SDK from collecting device-level identifiers. Raised the `rn-linkrunner` peer dependency to `^4.1.0`, the release that adds `privacyMode` and bundles native Android SDK 5.1.0 and iOS SDK 5.1.0. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after changing the option.
