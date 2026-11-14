@@ -17,17 +17,24 @@ const withConfiguration_iOS: ConfigPlugin<LinkrunnerConfiguration> = (
 
     expoConfig = withInfoPlist(expoConfig, expoConfig => {
 
-        // Add tracking description from configuration or default only when disable idfa is false
-        if (!expoConfig.modResults.NSUserTrackingUsageDescription && !configuration?.disableIdfa) {
+        // Add tracking description from configuration or default only when disableIdfa and privacyMode are off.
+        // Privacy mode never requests ATT, so the app must not declare the usage description for it.
+        if (
+            !expoConfig.modResults.NSUserTrackingUsageDescription &&
+            !configuration?.disableIdfa &&
+            !configuration?.privacyMode
+        ) {
             expoConfig.modResults.NSUserTrackingUsageDescription = userTrackingMessage
         }
 
-        // Add SKAN configuration
-        if(!expoConfig.modResults.NSAdvertisingAttributionReportEndpoint) {
-            expoConfig.modResults.NSAdvertisingAttributionReportEndpoint = 'https://linkrunner-skan.com'
-        }
-        if(!expoConfig.modResults.AttributionCopyEndpoint) {
-            expoConfig.modResults.AttributionCopyEndpoint = 'https://linkrunner-skan.com'
+        // Add SKAN configuration. Skipped in privacy mode, which makes no SKAdNetwork calls.
+        if (!configuration?.privacyMode) {
+            if(!expoConfig.modResults.NSAdvertisingAttributionReportEndpoint) {
+                expoConfig.modResults.NSAdvertisingAttributionReportEndpoint = 'https://linkrunner-skan.com'
+            }
+            if(!expoConfig.modResults.AttributionCopyEndpoint) {
+                expoConfig.modResults.AttributionCopyEndpoint = 'https://linkrunner-skan.com'
+            }
         }
 
         // Meta anonymous ID collection is on by default, so only an explicit opt-out is
