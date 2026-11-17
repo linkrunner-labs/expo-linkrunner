@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.0] - 2026-11-17
+
+### Changed
+
+- `rn-linkrunner` peer dependency raised to `^4.3.0`. That release runs Android SDK calls off the main thread and bundles native Android SDK 5.3.0 and iOS SDK 5.3.0. Requests are saved to an on-device queue and sent in order while the app runs, so they survive the app being killed or going offline. On Android this replaces one WorkManager job per call, which could start the app in the background and cause ANRs. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
+### Fixed
+
+- Release builds no longer write the project token or user details (name, email, phone) to logcat or the console. The native SDKs log only when debug is on, and mask those values even then.
+
 ## [4.2.0] - 2026-11-14
 
 ### Added
