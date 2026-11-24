@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.1] - 2026-11-24
+
+### Changed
+
+- `rn-linkrunner` peer dependency raised to `^4.3.1`, which bundles iOS SDK 5.3.1. The iOS SDK now ships an Apple privacy manifest (`PrivacyInfo.xcprivacy`) that declares the data it collects and its use of `UserDefaults`, so it shows up in your app's privacy report and App Store Connect no longer flags it as missing. No API changes. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
 ## [4.3.0] - 2026-11-17
 
 ### Changed
