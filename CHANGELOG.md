@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.2] - 2026-11-26
+
+### Changed
+
+- `rn-linkrunner` peer dependency raised to `^4.3.2`, which bundles Android SDK 5.3.1 and iOS SDK 5.3.2. `getAttributionData` and `handleDeeplink` no longer wait up to 5 seconds for init to be sent on a new install, so attribution and deferred deeplinks arrive sooner on the first launch. No API changes. Run a native rebuild (`npx expo prebuild --clean` or an EAS build) after upgrading.
+
 ## [4.3.1] - 2026-11-24
 
 ### Changed
